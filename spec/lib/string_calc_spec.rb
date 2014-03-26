@@ -26,5 +26,11 @@ describe 'String Calculator' do
         make_calc.add('1,2').should be 3
       end
     end
+
+    context 'Unknown amount of numbers' do
+      it 'handles them accordingly' do
+        make_calc.add('1,2,3').should be 6
+      end
+    end
   end
 end
