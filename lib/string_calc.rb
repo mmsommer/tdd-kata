@@ -2,7 +2,7 @@ class StringCalculator
   def add(numbers)
     return default_result if empty_input?(numbers)
     result = default_result
-    numbers.split(',').each do |number|
+    numbers.split(/,|\\n/).each do |number|
       result = result + number.to_i
     end
     result

@@ -32,5 +32,11 @@ describe 'String Calculator' do
         make_calc.add('1,2,3').should be 6
       end
     end
+
+    context 'Newline instead of commas' do
+      it 'returns the sum of "1\n2,3"' do
+        make_calc.add('1\n2,3').should be 6
+      end
+    end
   end
 end
