@@ -1,7 +1,11 @@
 class StringCalculator
   def add(numbers)
     return default_number if empty_string(numbers)
-    return numbers.to_i
+    result = default_number
+    numbers.split(',').each do |number|
+      result = result + number.to_i
+    end
+    result
   end
 
   private

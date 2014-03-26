@@ -20,6 +20,11 @@ describe 'String Calculator' do
         make_calc.add('2').should be 2
       end
     end
+
+    context 'Two numbers' do
+      it 'returns the sum of 1,2 which is 3' do
+        make_calc.add('1,2').should be 3
+      end
     end
   end
 end
