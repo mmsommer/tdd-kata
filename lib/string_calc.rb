@@ -1,5 +1,6 @@
 class StringCalculator
   def add(numbers)
-    0
+    return 0 if numbers == ''
+    return 1
   end
 end
