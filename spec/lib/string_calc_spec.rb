@@ -37,6 +37,10 @@ describe 'String Calculator' do
       it 'returns the sum of "1\n2,3"' do
         make_calc.add('1\n2,3').should be 6
       end
+
+      it 'throws error when \n is at end of line' do
+        expect{make_calc.add('1,\n')}.to raise_error
+      end
     end
   end
 end

@@ -3,6 +3,7 @@ class StringCalculator
     return default_result if empty_input?(numbers)
 
     result = default_result
+    raise 'Illegal input' if numbers.end_with?('\n')
     numbers.split(/,|\\n/).each do |number|
       result = result + number.to_i
     end
