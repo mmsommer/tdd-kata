@@ -15,6 +15,11 @@ describe 'String Calculator' do
       it 'returns that number' do
         make_calc.add('1').should be 1
       end
+
+      it 'returns that number even if it is not 1' do
+        make_calc.add('2').should be 2
+      end
+    end
     end
   end
 end
