@@ -42,5 +42,11 @@ describe 'String Calculator' do
         expect{make_calc.add('1,\n')}.to raise_error
       end
     end
+
+    context 'Support different delimiters' do
+      it '//;\n1;2 should return three where the default delimiter is ";"' do
+        make_calc.add('//;\n1;2').should be 3
+      end
+    end
   end
 end
