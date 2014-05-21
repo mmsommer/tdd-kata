@@ -6,8 +6,8 @@ class StringCalculator
     raise 'Illegal input' if input.end_with?('\n')
 
     numbers(input).each do |number|
-      raise "negatives not allowed: #{number}" if number.to_i < 0
-      result = result + number.to_i
+      raise "negatives not allowed: #{number}" if number < 0
+      result = result + number
     end
     result
   end
@@ -27,7 +27,9 @@ class StringCalculator
   end
 
   def numbers(input)
-    extract_numbers(input).split(delimiter(input))
+    extract_numbers(input).split(delimiter(input)).map do |number|
+      number.to_i
+    end
   end
 
   def delimiter(input)
