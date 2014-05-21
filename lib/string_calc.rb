@@ -1,4 +1,8 @@
 class StringCalculator
+  def initialize(logger)
+    @logger = logger
+  end
+
   def add(input)
     return default_result if empty_input?(input)
 
@@ -11,6 +15,7 @@ class StringCalculator
     @all_numbers.each do |number|
       result = result + number
     end
+    @logger.write "got #{result}"
     result
   end
 

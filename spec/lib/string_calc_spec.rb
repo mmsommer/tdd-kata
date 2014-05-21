@@ -2,7 +2,8 @@ require_relative '../spec_helper'
 require_relative '../../lib/string_calc'
 
 describe 'String Calculator' do
-  let(:make_calc) { StringCalculator.new }
+  let(:logger) { FakeLogger.new }
+  let(:make_calc) { StringCalculator.new(logger) }
 
   describe 'Adding numbers' do
     context 'Empty string' do
@@ -58,5 +59,25 @@ describe 'String Calculator' do
         expect{make_calc.add('-1,-2')}.to raise_error 'negatives not allowed: -1,-2'
       end
     end
+
+    context 'Logging' do
+      it '1 should log "got 1"' do
+        make_calc.add('1')
+        logger.logged_message.should eql 'got 1'
+      end
+
+      it '1,2 should log "got 3"' do
+        make_calc.add('1,2')
+        logger.logged_message.should eql 'got 3'
+      end
+    end
+  end
+end
+
+class FakeLogger
+  attr_accessor :logged_message
+
+  def write(text)
+    @logged_message = text
   end
 end
