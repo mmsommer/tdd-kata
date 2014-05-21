@@ -6,6 +6,7 @@ class StringCalculator
     raise 'Illegal input' if input.end_with?('\n')
 
     numbers(input).each do |number|
+      raise "negatives not allowed: #{number}" if number.to_i < 0
       result = result + number.to_i
     end
     result

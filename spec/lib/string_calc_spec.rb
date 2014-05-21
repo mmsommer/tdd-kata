@@ -48,5 +48,11 @@ describe 'String Calculator' do
         make_calc.add('//;\n1;2').should be 3
       end
     end
+
+    context 'Negative numbers' do
+      it '-1 should raise exception "negatives not allowed: -1"' do
+        expect{make_calc.add('-1')}.to raise_error "negatives not allowed: -1"
+      end
+    end
   end
 end
