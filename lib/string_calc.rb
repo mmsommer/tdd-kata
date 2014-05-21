@@ -5,14 +5,24 @@ class StringCalculator
     result = default_result
     raise 'Illegal input' if input.end_with?('\n')
 
-    numbers(input).each do |number|
-      raise "negatives not allowed: #{number}" if number < 0
+    @all_numbers = numbers(input)
+    raise "negatives not allowed: #{@negatives.join(',')}" if negative_numbers?
+
+    @all_numbers.each do |number|
       result = result + number
     end
     result
   end
 
   private
+  def negative_numbers?
+    @negatives = Array.new
+    @all_numbers.each do |number|
+      @negatives.push number if number < 0
+    end
+    !@negatives.empty?
+  end
+
   def empty_input?(input)
     input == ''
   end

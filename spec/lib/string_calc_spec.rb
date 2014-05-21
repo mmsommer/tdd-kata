@@ -55,8 +55,7 @@ describe 'String Calculator' do
       end
 
       it '-1,-2 should raise exception "negatives not allowed: -1,-2"' do
-        pending
-        #expect{make_calc.add('-1,-2')}.to raise_error 'negatives not allowed: -1,-2'
+        expect{make_calc.add('-1,-2')}.to raise_error 'negatives not allowed: -1,-2'
       end
     end
   end
